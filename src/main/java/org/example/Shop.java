@@ -18,9 +18,9 @@ public class Shop {
     public void shopCash(int[] mass) {
         int sumShopCash = 0;
         for (int i : mass) {
-            atomicSum.addAndGet(i);
             sumShopCash = sumShopCash + i;
         }
+        atomicSum.addAndGet(sumShopCash);
         Thread thread = Thread.currentThread();
         System.out.println("Выручка для: " +
                 thread.getName() + " = " + sumShopCash);
